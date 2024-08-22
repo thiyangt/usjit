@@ -1,0 +1,50 @@
+---
+title: "Essential Statistical Skills for Research in Energy and Environmental Technologies"
+subtitle: ""
+author: "Dr. Thiyanga S. Talagala"
+institute: ""
+date: "2024 August 23"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: 
+      - default
+      - default-fonts
+      - libs/cc-fonts.css
+      - libs/figure-captions.css
+      - xaringan-themer.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+---
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#081d58",
+  text_bold_color = "#ce1256",
+  title_slide_text_color = "#edf8b1",
+  header_font_google = google_font("Josefin Sans"),
+  base_font_size = "20px",
+  text_font_size = "1.5rem",
+  code_font_size = "1rem"
+ #text_font_google   = google_font("Montserrat", "300", "300i")
+ # code_font_google   = google_font("Fira Mono")
+)
+```
+
+## Essential Statistical Skills
+
+1. Statistical software and programming skills
+
+2. Data wrangling skills
+
+3. Data visualization skills
+
+4. Data analysis and statistical modelling skills
+
+5. Machine learning skills
+
+6. Communication skills
