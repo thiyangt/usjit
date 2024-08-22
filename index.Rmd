@@ -43,8 +43,49 @@ style_mono_accent(
 
 3. Data visualization skills
 
-4. Data analysis and statistical modelling skills
+4. Design and analysis of experiments
+
+4. Statistical modelling skills
 
 5. Machine learning skills
 
 6. Communication skills
+
+---
+class: titled, middle
+
+## We have AI and ChatGPT.
+
+## We don't need these skills anymore.
+
+---
+class: titled, middle
+
+## ~~We have AI and ChatGPT~~.
+
+## ~~We don't need these skills anymore~~.
+
+# AI-based tools are powerful, but it is most effective **when used in combination with human expertise.**
+
+---
+class: titled, middle
+
+## ~~We have AI and ChatGPT~~.
+
+## ~~We don't need these skills anymore~~.
+
+##  AI-based tools are powerful, but it is most effective **when used in combination with human expertise.**
+
+- **Improve prompt engineering:** Knowing the underlying concepts helps in framing better questions and guiding AI to give accurate and relevant outputs
+
+- **Evaluate AI-generated outputs:**  To critically assess whether AI-generated results are valid and make sense for your problem
+---
+.pull-left[
+Determine **which natural seed (Species A, B, or C) is most effective in reducing turbidity** in water samples.
+
+]
+
+.pull-right[
+
+![](experiment.png)
+]
