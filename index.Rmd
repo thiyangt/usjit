@@ -1,7 +1,7 @@
 ---
 title: "Essential Statistical Skills for Research in Energy and Environmental Technologies"
-subtitle: ""
-author: "Dr. Thiyanga S. Talagala"
+subtitle: "Workshop for the Faculty of Technology,  University of Sri Jayewardenepura"
+author: "Dr Thiyanga S. Talagala"
 institute: ""
 date: "August 23, 2024"
 output:
@@ -333,7 +333,7 @@ $$H_1: \mu_{winter} \neq \mu_{summer}$$
 
 ---
 
-## Making Predictions/ Forecasting
+## Forecasting
 
 Measure the pH level of water at a specific location daily at 10 PM over a two-year period. You are interested in forecasting the  pH level in the upcoming months based on historical data.
 
@@ -350,3 +350,56 @@ Suppose you have pH level measurements from various monitoring stations along th
 - You have collected water quality data from various locations along the Chicago River, including multiple parameters such as pH, dissolved oxygen (DO), turbidity, temperature, and nitrate concentration. 
 
 - The goal is to identify clusters of locations with similar water quality profiles, which could help in identifying areas with potential pollution sources or regions requiring special attention for water management.
+
+---
+
+## Making Predictions
+
+Predict the pH level of a river location based on various environmental and infrastructural features.
+
+
+
+---
+
+.pull-left[
+
+### Supervised Learning
+
+**Dependent Variable:** pH level
+
+**Independent variables:**
+
+-  The count of industrial establishments near the location
+
+- Average rainfall
+
+- Average temperature
+
+- Land use
+
+- Soil type ( (e.g., agriculture, urban, forest))
+
+]
+
+
+.pull-right[
+
+### Unsupervised Learning
+
+
+**Independent variables:**
+
+- pH level
+
+-  The count of industrial establishments near the location
+
+- Average rainfall
+
+- Average temperature
+
+- Land use
+
+- Soil type ( (e.g., agriculture, urban, forest))
+
+
+]
