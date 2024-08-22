@@ -3,7 +3,7 @@ title: "Essential Statistical Skills for Research in Energy and Environmental Te
 subtitle: ""
 author: "Dr. Thiyanga S. Talagala"
 institute: ""
-date: "2024 August 23"
+date: "August 23, 2024"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -79,9 +79,20 @@ class: titled, middle
 - **Improve prompt engineering:** Knowing the underlying concepts helps in framing better questions and guiding AI to give accurate and relevant outputs
 
 - **Evaluate AI-generated outputs:**  To critically assess whether AI-generated results are valid and make sense for your problem
+
+---
+class: inverse, center, middle
+
+# Example 1
+
 ---
 .pull-left[
 Determine **which natural seed (Species A, B, or C) is most effective in reducing turbidity** in water samples.
+
+- The tests were carried out, using artificial turbid
+water with conventional jar test apparatus.
+
+> Response variable = Turbidity Reduction Efficiency (TRE %)
 
 ]
 
@@ -89,3 +100,253 @@ Determine **which natural seed (Species A, B, or C) is most effective in reducin
 
 ![](experiment.png)
 ]
+
+
+---
+
+.pull-left[
+
+## Data
+
+```{r, echo=FALSE}
+Treatment <- c("A", "B", "C")
+TRE <- c(10, 55, 80)
+df <- data.frame(Tratment=Treatment,
+                 TRE = TRE)
+df |> knitr::kable()
+```
+
+- Statistical conclusions cannot be drawn based on one replicate.
+
+]
+
+.pull-right[
+
+![](experiment.png)
+
+]
+
+
+---
+
+.pull-left[
+
+- Independent Variable (Treatment): Type of natural seed added to the water.
+
+    - Treatment A: Seed A
+    - Treatment B: Seed B
+    - Treatment C: Seed C
+
+- Dependent Variable: Turbidity Reduction Efficiency
+
+- Randomization
+
+- Replication
+
+
+]
+
+
+.pull-right[
+
+
+![](image2.png)
+]
+
+---
+
+## Completely Randomized Design (CRD)
+
+.pull-left[
+
+
+![](image2.png)
+
+]
+
+---
+
+##  Common Experimental Designs
+
+.pull-left[
+
+- Completely Randomized Design (CRD)
+
+- Randomized Complete Block Design (RCBD)
+
+- Latin Square Design
+
+- Factorial Design
+
+- Split-Plot Design
+
+- Nested Design
+
+]
+
+---
+
+class: inverse, center, middle
+
+# Example 2
+
+---
+
+## Chicago River: Water Quality Monitoring
+
+.pull-left[
+
+![](image4.jpg)
+
+]
+
+.pull-right[
+
+![](image5.jpg)
+]
+
+- Measure the pH level of water at a specific location daily at 10 PM over a two-year period.
+
+---
+.pull-left[
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# Load necessary libraries
+library(dplyr)
+library(kableExtra)
+
+# Set the start and end dates
+start_date <- as.Date("2022-01-01")
+end_date <- as.Date("2023-12-31")
+
+# Generate a sequence of dates for two years
+date_column <- seq.Date(from = start_date, to = end_date, by = "day")
+
+# Generate random pH values between 6.5 and 8.5 (common range for natural water)
+set.seed(123) # For reproducibility
+pH_values <- round(runif(length(date_column), min = 6.5, max = 8.5), 2)
+
+# Create the dataset
+data <- data.frame(
+  Date = date_column,
+  pH = pH_values
+)
+kable(data, caption = "pH Data ", align = "c") |>
+  kable_styling(bootstrap_options = "striped", full_width = FALSE, font_size = 14) |>
+  column_spec(1, width = "4cm") |>
+  column_spec(2, width = "3cm")
+```
+]
+
+.pull-right[
+
+## Time series data
+
+- Sequence of data points recorded at regular time intervals. 
+
+- Temporal dependency: Data points are dependent on time
+]
+
+
+---
+class: inverse, center, middle
+
+# Example 3
+
+---
+
+## Spatial data
+
+.pull-left[
+
+![](image4.jpg)
+
+]
+
+
+
+.pull-right[
+
+![](image5.jpg)
+
+]
+
+- Measure the pH level of water at multiple locations on a given day.
+
+
+--- 
+class: inverse, center, middle
+
+# Example 4
+
+---
+
+## Spatio-temporal data
+
+.pull-left[
+
+![](image4.jpg)
+
+]
+
+
+
+.pull-right[
+
+![](image5.jpg)
+
+]
+
+- Measure the pH level of water at multiple locations daily at 10 PM over a two-year period.
+
+---
+
+
+![](ip11.png)
+
+---
+class: inverse, middle, center
+
+## Nature of your research problem
+
+
+---
+
+## Statistical Inference: (Point and Interval Estimates)
+
+Suppose you collect daily pH measurements from the Chicago River over a year. You want to **estimate** the average pH level of the river for the year.
+
+> Point Estimate
+
+> Interval Estimate (Confidence Interval)
+
+Eg:  A 95% confidence interval for the mean pH might be (7.0, 7.4). 
+
+---
+
+## Statistical Inference:  Hypothesis Testing
+
+Suppose you are analyzing water quality data from the Chicago River and want to determine whether there is a significant difference in the average pH levels during the winter and summer months.
+
+$$H_0: \mu_{winter} = \mu_{summer}$$
+
+$$H_1: \mu_{winter} \neq \mu_{summer}$$
+
+---
+
+## Making Predictions/ Forecasting
+
+Measure the pH level of water at a specific location daily at 10 PM over a two-year period. You are interested in forecasting the  pH level in the upcoming months based on historical data.
+
+---
+
+## Spatial Interpolation
+
+Suppose you have pH level measurements from various monitoring stations along the Chicago River, and you want to estimate the pH levels at unobserved locations between these stations.
+
+---
+
+## Cluster Analysis Problem
+
+- You have collected water quality data from various locations along the Chicago River, including multiple parameters such as pH, dissolved oxygen (DO), turbidity, temperature, and nitrate concentration. 
+
+- The goal is to identify clusters of locations with similar water quality profiles, which could help in identifying areas with potential pollution sources or regions requiring special attention for water management.
