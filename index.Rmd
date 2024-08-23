@@ -498,44 +498,62 @@ Predict the pH level of a river location based on various environmental and infr
 
 ---
 
+.pull-left[
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-# Load necessary libraries
+# Generate sample data 
+set.seed(25052020)
+# normal
+s1 <- rnorm(100)
+s2 <- rbeta(100, 2, 1)
+s3 <- rexp(100)
+# mixture
+s4 <- rnorm(100, rep(c(-1, 1), each = 50) * sqrt(0.9), sqrt(0.1))
+four <- data.frame(
+dist = factor(rep(c("s1", "s2", "s3", "s4"),
+each = 100),
+c("s1", "s2", "s3", "s4")),
+vals = c(s1, s2, s3, s4)
+)
+df <- data.frame(s1=s1, s2=s2, s3=s3, s4=s4)
 library(ggplot2)
-library(gridExtra)
-
-# Generate data
-set.seed(123)  # For reproducibility
-
-# Positive skewed distribution (e.g., exponential distribution)
-data_skewed <- data.frame(
-  value = rexp(1000, rate = 1),
-  group = 'Positively Skewed'
-)
-
-# Symmetric distribution with small variance (e.g., normal distribution)
-data_symmetric <- data.frame(
-  value = rnorm(1000, mean = 0, sd = 0.5),
-  group = 'Symmetric Small Variance'
-)
-
-# Combine datasets
-data_combined <- rbind(data_skewed, data_symmetric)
-
-# Plot
-plot_skewed <- ggplot(data_skewed, aes(x = value)) +
-  geom_histogram(binwidth = 0.2, fill = 'skyblue', color = 'black') +
-  labs(title = 'Positively Skewed Distribution') +
-  theme_minimal()
-
-plot_symmetric <- ggplot(data_symmetric, aes(x = value)) +
-  geom_histogram(binwidth = 0.2, fill = 'lightgreen', color = 'black') +
-  labs(title = 'Symmetric Distribution with Small Variance') +
-  theme_minimal()
-
-# Arrange plots side by side
-grid.arrange(plot_skewed, plot_symmetric, ncol = 2)
+ggplot(four, aes(x = vals)) + 
+geom_histogram(aes(fill = dist), colour = "black") + 
+coord_cartesian(xlim = c(-3, 6)) + 
+facet_wrap(~ dist) 
 
 ```
+
+]
+
+.pull-right[
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# Load necessary libraries
+library(dplyr)
+library(knitr)
+library(moments)  # For skewness function
+
+# Create a function to calculate descriptive statistics
+calc_stats <- function(data) {
+  data %>%
+    summarise(
+      Mean = round(mean(vals), 2),
+      Median = round(median(vals), 2),
+      Variance = round(var(vals), 2),
+      SD = round(sd(vals), 2),
+      Skewness = round(skewness(vals), 2)
+    )
+}
+# Calculate statistics for each distribution
+stats <- four %>%
+  group_by(dist) %>%
+  do(calc_stats(.)) %>%
+  ungroup()
+
+# Display results in a kable
+kable(stats, caption = "Descriptive Statistics for Each Distribution") |>
+  kable_styling(font_size = 20) 
+```
+]
 
 ---
 
