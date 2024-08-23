@@ -3505,6 +3505,77 @@ Data visualization is a fundamental prerequisite for any data analysis project.
 Resources: https://vizmaster.netlify.app/note/
 
 ---
+
+A chemist wants to measure the bias in a pH meter. She uses the meter to measure the pH in 14 neutral
+substances (pH=7) and obtains the data below.
+
+ 7.01, 7.04, 6.97, 7.00, 6.99, 6.97, 7.04, 7.04, 7.01, 7.00, 6.99, 7.04, 7.07, 6.97
+
+Is there sufficient evidence to support the claim that the pH meter is not correctly calibrated at the `\(\alpha\)` = 0.05 level of significance?
+
+---
+
+
+``` r
+ph &lt;- c( 7.01, 7.04, 6.97, 7.00, 6.99, 6.97, 7.04, 7.04, 7.01, 7.00, 6.99, 7.04, 7.07, 6.97)
+```
+
+
+---
+
+
+``` r
+ph.df &lt;- data.frame(pH=ph)
+ggplot(ph.df,
+aes(sample=pH))+
+stat_qq() + stat_qq_line()+labs(x="Theoretical Quantiles", y="Sample Quantiles")
+```
+
+![](index_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
+
+``` r
+shapiro.test(ph.df$pH)
+```
+
+```
+## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  ph.df$pH
+## W = 0.91603, p-value = 0.1927
+```
+
+---
+
+H0: Data are normally distributed.
+
+H1: Data are not normally distributed
+
+---
+
+`\(H_0: \mu = 7\)`
+
+`\(H_1: \mu \neq 7\)`
+
+
+
+``` r
+t.test(ph.df$pH, alternative = "two.sided", mu=7)
+```
+
+```
+## 
+## 	One Sample t-test
+## 
+## data:  ph.df$pH
+## t = 1.1832, df = 13, p-value = 0.2579
+## alternative hypothesis: true mean is not equal to 7
+## 95 percent confidence interval:
+##  6.991742 7.028258
+## sample estimates:
+## mean of x 
+##      7.01
+```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
