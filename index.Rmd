@@ -333,6 +333,12 @@ $$H_1: \mu_{winter} \neq \mu_{summer}$$
 
 ---
 
+## Hypothesis testing: Parametric vs Non-parametric
+
+- Live Demo
+
+---
+
 ## Forecasting
 
 Measure the pH level of water at a specific location daily at 10 PM over a two-year period. You are interested in forecasting the  pH level in the upcoming months based on historical data.
@@ -403,3 +409,21 @@ Predict the pH level of a river location based on various environmental and infr
 
 
 ]
+
+---
+
+## Data Visualisation
+
+
+
+---
+
+## Data Analysis with R: Lab Session
+
+- Introduction to R and RStudio
+
+- Data Visualization with R
+
+- Introduction to hypothesis testing 
+
+---
