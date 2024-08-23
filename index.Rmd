@@ -637,7 +637,7 @@ library(ggplot2)
 ---
 
 
-![](https://blog.revolutionanalytics.com/downloads/DataSaurus%20Dozen.gif
+![](https://blog.revolutionanalytics.com/downloads/DataSaurus%20Dozen.gif)
 
 
 ---
@@ -710,3 +710,8 @@ $H_1: \mu \neq 7$
 ```{r}
 t.test(ph.df$pH, alternative = "two.sided", mu=7)
 ```
+
+---
+class: title-slide, top, left, inverse
+background-image: url("sp.png")
+background-size: cover
