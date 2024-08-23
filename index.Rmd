@@ -335,7 +335,42 @@ $$H_1: \mu_{winter} \neq \mu_{summer}$$
 
 ## Hypothesis testing: Parametric vs Non-parametric
 
-- Live Demo
+.pull-left[
+
+### Parametric
+
+- One-Sample t-Tests
+
+- Independent Two-Sample t-Test
+
+- Paired t-Test
+
+- One-Way ANOVA
+
+- Two-way ANOVA
+
+
+
+]
+
+
+.pull-right[
+
+### Non-parametric
+
+- Chi-Square Test of Independence
+
+- Chi-Square Goodness-of-Fit Test
+
+- Mann-Whitney U Test
+
+- Wilcoxon Signed-Rank Test 
+
+- Kruskal-Wallis H Test
+
+- Friedman Test
+
+]
 
 ---
 
@@ -412,6 +447,98 @@ Predict the pH level of a river location based on various environmental and infr
 
 ---
 
+
+.pull-left[
+
+### Supervised Learning
+
+- Linear Regression 
+
+- Logistic Regression
+
+- Decision Trees
+
+- Random Forest 
+
+- Support Vector Machines (SVM)
+
+- k-Nearest Neighbors (k-NN)
+
+- Naive Bayes
+
+- XGBoost
+
+]
+
+.pull-right[
+
+### Unsupervised Learning
+
+- Clustering
+
+- Principal Component Analysis (PCA)
+
+- Factor Analysis
+
+- Association Rules
+
+]
+
+---
+
+## Descriptive Statistics
+
+- Measures of Location: describe the central tendency or typical value of a dataset (Mean, Median, Mode)
+
+- Measures of Dispersion:  describe the spread or variability of the dataset (Variance, Standard Deviation, Interquartile Range)
+
+- Measures of Shape: describe the asymmetry and degree of peakness of the distribution (Skewness, Kurtosis)
+
+- Measures of Association: describe the strength and direction of relationships between variables (Spearman's correlation, Pearson's correlation coefficient)
+
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# Load necessary libraries
+library(ggplot2)
+library(gridExtra)
+
+# Generate data
+set.seed(123)  # For reproducibility
+
+# Positive skewed distribution (e.g., exponential distribution)
+data_skewed <- data.frame(
+  value = rexp(1000, rate = 1),
+  group = 'Positively Skewed'
+)
+
+# Symmetric distribution with small variance (e.g., normal distribution)
+data_symmetric <- data.frame(
+  value = rnorm(1000, mean = 0, sd = 0.5),
+  group = 'Symmetric Small Variance'
+)
+
+# Combine datasets
+data_combined <- rbind(data_skewed, data_symmetric)
+
+# Plot
+plot_skewed <- ggplot(data_skewed, aes(x = value)) +
+  geom_histogram(binwidth = 0.2, fill = 'skyblue', color = 'black') +
+  labs(title = 'Positively Skewed Distribution') +
+  theme_minimal()
+
+plot_symmetric <- ggplot(data_symmetric, aes(x = value)) +
+  geom_histogram(binwidth = 0.2, fill = 'lightgreen', color = 'black') +
+  labs(title = 'Symmetric Distribution with Small Variance') +
+  theme_minimal()
+
+# Arrange plots side by side
+grid.arrange(plot_skewed, plot_symmetric, ncol = 2)
+
+```
+
+---
+
 ## Data Visualisation
 
 
@@ -425,5 +552,7 @@ Predict the pH level of a river location based on various environmental and infr
 - Data Visualization with R
 
 - Introduction to hypothesis testing 
+
+Resources: https://vizmaster.netlify.app/note/
 
 ---
