@@ -1,5 +1,5 @@
 ---
-title: "Essential Statistical Skills for Research in Energy and Environmental Technologies"
+title: "Essential Statistical Skills for Energy and Environmental Technology Research"
 subtitle: "Workshop for the Faculty of Technology,  University of Sri Jayewardenepura"
 author: "Dr Thiyanga S. Talagala"
 institute: ""
@@ -637,6 +637,12 @@ library(ggplot2)
 ---
 
 
+![](https://blog.revolutionanalytics.com/downloads/DataSaurus%20Dozen.gif
+
+
+---
+
+
 ## Data Visualisation
 
 Data visualization is a fundamental prerequisite for any data analysis project. 
@@ -647,10 +653,6 @@ Data visualization is a fundamental prerequisite for any data analysis project.
 - Visualizing the data helps in identifying missing data, errors, or inconsistencies that might need to be addressed before moving forward with analysis.
 
 - Effective visualizations allow analysts to communicate complex results clearly to stakeholders.
-
----
-
-![](![](https://blog.revolutionanalytics.com/downloads/DataSaurus%20Dozen.gif)
 
 
 ---
