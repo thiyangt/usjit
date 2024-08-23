@@ -556,9 +556,101 @@ kable(stats, caption = "Descriptive Statistics for Each Distribution") |>
 ]
 
 ---
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# Load necessary libraries
+library(ggplot2)
+library(gridExtra)
+
+set.seed(42)  # For reproducibility
+
+# Function to generate data with a specific Pearson correlation
+generate_data <- function(r, n = 100) {
+  x <- rnorm(n)
+  y <- r * x + sqrt(1 - r^2) * rnorm(n)
+  data.frame(x = x, y = y)
+}
+
+# Generate data for each Pearson correlation
+data_1 <- generate_data(1)
+data_08 <- generate_data(0.8)
+data_05 <- generate_data(0.5)
+data_neg05 <- generate_data(-0.5)
+data_neg08 <- generate_data(-0.8)
+data_neg1 <- generate_data(-1)
+
+# Create scatter plots
+plot_1 <- ggplot(data_1, aes(x = x, y = y)) +
+  geom_point(color = 'blue') +
+  ggtitle("Pearson r = +1") +
+  theme_minimal()
+
+plot_08 <- ggplot(data_08, aes(x = x, y = y)) +
+  geom_point(color = 'green') +
+  ggtitle("Pearson r = +0.8") +
+  theme_minimal()
+
+plot_05 <- ggplot(data_05, aes(x = x, y = y)) +
+  geom_point(color = 'purple') +
+  ggtitle("Pearson r = +0.5") +
+  theme_minimal()
+
+plot_neg05 <- ggplot(data_neg05, aes(x = x, y = y)) +
+  geom_point(color = 'orange') +
+  ggtitle("Pearson r = -0.5") +
+  theme_minimal()
+
+plot_neg08 <- ggplot(data_neg08, aes(x = x, y = y)) +
+  geom_point(color = 'red') +
+  ggtitle("Pearson r = -0.8") +
+  theme_minimal()
+
+plot_neg1 <- ggplot(data_neg1, aes(x = x, y = y)) +
+  geom_point(color = 'darkred') +
+  ggtitle("Pearson r = -1") +
+  theme_minimal()
+
+# Arrange the plots in a grid
+grid.arrange(plot_1, plot_08, plot_05, plot_neg05, plot_neg08, plot_neg1, ncol = 3)
+
+```
+
+
+---
+
+.pull-left[
+```{r, echo=FALSE, warning=FALSE}
+library(datasauRus)
+library(ggplot2)
+  ggplot(datasaurus_dozen, aes(x = x, y = y, colour = dataset))+
+    geom_point()+
+    theme_void()+
+    theme(legend.position = "none")+
+    facet_wrap(~dataset, ncol = 3)
+```
+]
+
+.pull-right[
+
+**Among the scatter plots, which one exhibits the highest correlation coefficient?**
+
+]
+---
+
 
 ## Data Visualisation
 
+Data visualization is a fundamental prerequisite for any data analysis project. 
+
+
+- Visualization helps you gain an immediate understanding of the dataset
+
+- Visualizing the data helps in identifying missing data, errors, or inconsistencies that might need to be addressed before moving forward with analysis.
+
+- Effective visualizations allow analysts to communicate complex results clearly to stakeholders.
+
+---
+
+![](![](https://blog.revolutionanalytics.com/downloads/DataSaurus%20Dozen.gif)
 
 
 ---
